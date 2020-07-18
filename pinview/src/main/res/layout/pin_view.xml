@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pinView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Enter pin code"
+        tools:textColor="#7265d2"
+        tools:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/pinProgressLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView">
+
+        <View
+            android:id="@+id/pinOneProgress"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/oval"
+            tools:backgroundTint="#7265d2" />
+
+        <View
+            android:id="@+id/pinTwoProgress"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="19dp"
+            android:background="@drawable/oval"
+            tools:backgroundTint="#7265d2" />
+
+        <View
+            android:id="@+id/pinThreeProgress"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="19dp"
+            android:background="@drawable/oval"
+            tools:backgroundTint="#f6e7f4" />
+
+        <View
+            android:id="@+id/pinFourProgress"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="19dp"
+            android:background="@drawable/oval"
+            tools:backgroundTint="#f6e7f4" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pinProgressLayout"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/numbersGridView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pinProgressLayout"
+        app:spanCount="3"
+        tools:itemCount="12"
+        tools:listitem="@layout/item_number" />
+</androidx.constraintlayout.widget.ConstraintLayout>

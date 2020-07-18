@@ -1,0 +1,17 @@
+<resources>
+    <declare-styleable name="PinView">
+        <attr name="titleName" format="string" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="dotProgressColor" format="color" />
+        <attr name="dotUnProgressColor" format="color" />
+        <attr name="dotRadius" format="dimension" />
+        <attr name="numbersTextSize" format="dimension" />
+        <attr name="numbersTextColor" format="color" />
+        <attr name="deleteButtonColor" format="color" />
+        <attr name="clearButtonColor" format="color" />
+        <attr name="errorMessageText" format="string" />
+        <attr name="errorMessageTextSize" format="dimension" />
+        <attr name="errorMessageColor" format="color" />
+    </declare-styleable>
+</resources>
