@@ -27,7 +27,8 @@
 
 2. in module's build.gradle , add the implementation as following
 
-``` dependencies {
+``` 
+dependencies {
         .....
         .....
         implementation 'com.github.khaled2252:pin-view:1.0.0'
