@@ -9,7 +9,7 @@
 
 ### A customizable Pin Code entry view that can be used as a user login authentication method in your project.
 
-<img src="all_keys_preview.gif" width="400" height="600">
+<img src="all_keys_preview.gif" width="300" height="600">
 
 # Installation
 
@@ -18,7 +18,8 @@
 ```
 	allprojects {
 	   repositories {
-	      jcenter()
+           .....
+           .....
 	      maven { url "https://jitpack.io" }
 	   }
 	}
@@ -26,7 +27,12 @@
 
 2. in module's build.gradle , add the implementation as following
 
-``` implementation 'com.github.khaled2252:pin-view:1.0.0' ```
+``` dependencies {
+        .....
+        .....
+        implementation 'com.github.khaled2252:pin-view:1.0.0'
+    }
+ ```
 
 # Usage
 
@@ -77,7 +83,7 @@
             pinView.clearPin()
         }
     ```
-    <img src="error_preview.gif" width="400" height="600">
+    <img src="error_preview.gif" width="300" height="600">
 
     2. onPinKeyClickedListener() which is called when user clicks on ***any key*** in the pin keyboard (except for the 4th pin number)
 
@@ -86,7 +92,7 @@
             Toast.makeText(this,"Key pressed was $keyPressed",Toast.LENGTH_SHORT).show()
         }
       ```
-     <img src="key_pressed_preview.gif" width="400" height="600">
+     <img src="key_pressed_preview.gif" width="300" height="600">
 
 # Customization
     You can customize PinView's attributes using app namespace in xml as following :-
