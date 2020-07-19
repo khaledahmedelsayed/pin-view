@@ -9,7 +9,7 @@
 
 ### A customizable Pin Code entry view that can be used as a user login authentication method in your project.
 
-<img src="all_keys_preview.gif" width="200" height="400">
+<img src="all_keys_preview.gif" width="400" height="600">
 
 # Installation
 
@@ -77,7 +77,7 @@
             pinView.clearPin()
         }
     ```
-    <img src="error_preview.gif" width="200" height="400">
+    <img src="error_preview.gif" width="400" height="600">
 
     2. onPinKeyClickedListener() which is called when user clicks on ***any key*** in the pin keyboard (except for the 4th pin number)
 
@@ -86,8 +86,7 @@
             Toast.makeText(this,"Key pressed was $keyPressed",Toast.LENGTH_SHORT).show()
         }
       ```
-      
-<img src="key_pressed_preview.gif">
+     <img src="key_pressed_preview.gif" width="400" height="600">
 
 # Customization
     You can customize PinView's attributes using app namespace in xml as following :-
