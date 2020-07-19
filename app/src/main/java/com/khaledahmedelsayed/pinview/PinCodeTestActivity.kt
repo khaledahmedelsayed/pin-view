@@ -11,7 +11,7 @@ class PinCodeTestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        pinView.setOnCompletedListener = { pinCode ->
+        pinView.setOnCompletedListener(OnCompletedListener{ pinCode ->
 
             if(pinCode == "1234")
                 startActivity(Intent(this,HomeActivity::class.java))
@@ -20,11 +20,11 @@ class PinCodeTestActivity : AppCompatActivity() {
                 pinView.showError(true)
 
             pinView.clearPin()
-        }
+        })
 
-        pinView.setOnPinKeyClickListener = { keyPressed ->
+        pinView.setOnPinKeyClickListener(OnPinKeyClickedListener{ keyPressed ->
             Toast.makeText(this,"Key pressed was $keyPressed",Toast.LENGTH_SHORT).show()
-        }
+        })
 
     }
 }

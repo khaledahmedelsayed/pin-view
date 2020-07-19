@@ -21,12 +21,12 @@ import kotlin.properties.Delegates
 
 class PinView(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
 
-    var setOnCompletedListener: (pinCode: String) -> Unit = {}
-    // function type variable that is invoked when pin code is completed
+    // callback function that is invoked when pin code is completed
+    private var onCompletedListener : OnCompletedListener? = null
+    // callback function that is invoked when a pin key is clicked
+    private var onPinKeyClickListener : OnPinKeyClickedListener? = null
 
-    var setOnPinKeyClickListener : (keyPressed : String) -> Unit = {}
-    // function type variable that is invoked when a pin key clicked
-
+    // variable that holds xml pin view attributes
     private lateinit var attributes: TypedArray
 
     //Delegate initialization to listen to currentPinCode changes
@@ -119,6 +119,14 @@ class PinView(context: Context, attrs: AttributeSet) : LinearLayout(context, att
         pinFourProgress.background = drawable
     }
 
+    fun setOnCompletedListener(listener: OnCompletedListener){
+        onCompletedListener = listener
+    }
+
+    fun setOnPinKeyClickListener(listener: OnPinKeyClickedListener){
+        onPinKeyClickListener = listener
+    }
+
     fun deletePin() {
         if (currentPinCode.isNotEmpty())
             currentPinCode = currentPinCode.dropLast(1)
@@ -147,11 +155,11 @@ class PinView(context: Context, attrs: AttributeSet) : LinearLayout(context, att
         if (currentPinCode.length < 3)
         {
             currentPinCode = currentPinCode.plus(number)
-            setOnPinKeyClickListener(number.toString())
+            onPinKeyClickListener?.onPinKeyClickedListener(number.toString())
         }
         else if (currentPinCode.length == 3) {
             currentPinCode = currentPinCode.plus(number)
-            setOnCompletedListener(currentPinCode)
+            onCompletedListener?.onCompletedListener(currentPinCode)
         }
 
     }
@@ -231,7 +239,7 @@ class PinView(context: Context, attrs: AttributeSet) : LinearLayout(context, att
                             deleteImageView.visibility = View.VISIBLE
                             itemView.setOnClickListener {
                                 deletePin()
-                                setOnPinKeyClickListener("delete")
+                                onPinKeyClickListener?.onPinKeyClickedListener("delete")
                             }
                         }
                     }
@@ -239,14 +247,14 @@ class PinView(context: Context, attrs: AttributeSet) : LinearLayout(context, att
                         numberTextView.text = "0"
                         itemView.setOnClickListener {
                             appendNumber(0)
-                            setOnPinKeyClickListener("0")
+                            onPinKeyClickListener?.onPinKeyClickedListener("0")
                         }
                     }
                     position == 11 -> viewHolder.apply {
                         numberTextView.text = "C"
                         itemView.setOnClickListener {
                             clearPin()
-                            setOnPinKeyClickListener("clear")
+                            onPinKeyClickListener?.onPinKeyClickedListener("clear")
                         }
                     }
                 }
